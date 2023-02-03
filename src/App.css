@@ -12,6 +12,10 @@
   pointer-events: none;
 }
 
+a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
+  cursor: pointer;
+}
+
 .body {
   text-align: left;
   padding-left: 10px;
