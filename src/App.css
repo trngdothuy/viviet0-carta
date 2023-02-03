@@ -21,12 +21,27 @@
   Grid-template-columns: 1fr 1fr;
 }
 
+.button {
+  background-color: transparent;
+  color: rgb(213, 213, 195);
+  text-decoration: underline;
+  border: none;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.left-side, .right-side {
+  margin-left: 31px;
+}
+
 .food-section {
   padding-bottom: 30px;
 }
 
 .section-description {
-  padding-left: 15px
+  /* padding-left: 15px; */
+  padding-right: 15px;
+  margin: 0 73px 0 0px;
 }
 
 .box1 {
@@ -38,6 +53,20 @@
   text-align: right;
   padding-right: 50px;
   font-style: italic;
+}
+
+.centered-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 18px;
+  line-height: 35px;
+}
+
+.box2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 400px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -74,5 +103,14 @@
 /* iphone */
 .body {
   Grid-template-columns: 1fr;
+}
+
+.box2 {
+  padding: 0 20px;
+  text-align: left;
+}
+
+.price {
+   padding-right: 0px;
 }
 }

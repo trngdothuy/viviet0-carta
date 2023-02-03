@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-
+import React, { useState, useEffect } from "react";
 
 function App() {
   let ensalada = [
@@ -78,171 +78,304 @@ function App() {
     {id: 38, name: 'Platanos con mani y crema', name2: 'CHUỐI ĐẬU PHÔNG XAY PHỦ KEM TƯƠI', price: '4.95'},
   ];
 
+  let refresco = [
+    {id: 39, name: 'Agua Cabreiroa 1L', price: '2.00'},
+    {id: 40, name: 'Agua Cabreiroa 0.5L', price: '1.20'},
+    {id: 41, name: 'Agua con Gas Magma', price: '1.80'},
+    {id: 42, name: 'Coca cola/ Coca Zero/Nestea/ Fanta (limon/ naranja)', price: '1.80'},
+    {id: 43, name: 'Aquarius limon', price: '1.80'},
+    {id: 44, name: 'Aquarius naranja', price: '1.80'},
+    {id: 45, name: 'Tonica Schweppes 250ml', price: '1.90'},
+    {id: 46, name: 'Trina naranja', price: '1.50'},
+    {id: 47, name: 'Zumo de melocoton', price: '2.00'},
+    {id: 48, name: 'Zumo de piña', price: '2.00'},
+    {id: 49, name: 'Red bull', price: '3.00'},
+    {id: 50, name: 'Bitter kas', price: '2.00'},
+  ];
+
+  let cerveza = [
+    {id: 51, name: 'Cerveza Vietnamita Saigon', price: '3.60'},
+    {id: 52, name: 'Cerveza Amstel Radler Retornable', price: '2.50'},
+    {id: 53, name: 'Cerveza 1906 Especial 6.5', price: '2.90'},
+    {id: 54, name: 'Cerveza Galicia Tostada 0.0', price: '2.00'},
+    {id: 55, name: 'Cerveza Galicia Retornable 33cl', price: '2.50'},
+    {id: 56, name: 'Doble Galicia', price: '2.50'},
+    {id: 57, name: 'Jarra de Cerveza 1.25L', price: '7.00'},
+    {id: 58, name: 'Tinto Verano Original', price: '2.00'},
+    {id: 59, name: 'Tinto Verano Al Limon', price: '2.00'},
+  ];
+
+  let vino = [
+    {id: 60, name: 'Vino PC Pago de los capellanes', price: '45.00'},
+    {id: 61, name: 'Vino Valquemao', price: '35.00'},
+    {id: 62, name: 'Vino Marques de Caceres', price: '25.00'},
+    {id: 63, name: 'Vino Protos', price: '12.00'},
+    {id: 64, name: 'Vino Copa', price: '3.40'},
+  ];
+
+  let cafe = [
+    {id: 65, name: 'Cafe Vietnamita con Leche Condensada', price: '3.90'},
+    {id: 66, name: 'Te Verde', price: '2.00'},
+    {id: 67, name: 'Te Rojo', price: '2.00'},
+    {id: 68, name: 'Cafe Espresso', price: '1.30'},
+    {id: 69, name: 'Cafe Cortado', price: '1.50'},
+    {id: 70, name: 'Cafe Americano', price: '1.50'},
+    {id: 71, name: 'Cafe con Leche ', price: '1.70'},
+  ];
+
+  let cas = [
+    {id: 72, name: 'Te de Limon', price: '3.40'},
+    {id: 73, name: 'Te de Duanos con Naranja y Citronela', price: '3.40'},
+    {id: 74, name: 'Te de Lichi', price: '3.40'},
+    {id: 75, name: 'Te Rojo con Citronela ', price: '3.40'},
+  ];
+
+  const [comidaPressed, setComidaPressed] = useState(true)
+
+  function handleComidaClick (e) {
+      setComidaPressed(true)
+};
+
+  function handleBedidasClick (e) {
+    setComidaPressed(false)
+  };
+
 
   return (
     <div className="App">
   
       <h1>VỊ VIỆT CARTA</h1>
-      <div className="body">
-        <div className="left-side">
-          <div className="food-section">
-            <div className="section-name">
-              <b>I. ENSALADA VIETNAMITA DE MANGO</b>
-              <span> - GỎI XOÀI</span>
-            </div>
-          <i className="section-description">Deliciosa y saludable ensalada de mango con</i>
-          {ensalada.map((dish, i) => {
-                            return <div className="box1" key={i}>
-                                    <div><span>{dish.id}.</span> <span>{dish.name} </span></div>
-                                    <div className="price"><b><span>{dish.price}€</span></b></div>
-                                </div>
-                        })}
-          </div>
-
-          <div className="food-section">
-            <div className="section-name">
-              <b>II.	ROLLITOS PRIMAVERA </b>
-              <span> - NEM HÀ NỘI</span>
-            </div>
-          <i className="section-description">Rollitos fritos crujientes rellenos de</i>
-          {rollitos.map((dish, i) => {
-                            return <div className="box1" key={i}>
-                                    <div><span>{dish.id}.</span> <span>{dish.name} </span></div>
-                                    <div className="price"><b><span>{dish.price}€</span></b></div>
-                                </div>
-                        })}
-          </div>
-
-          <div className="food-section">
-            <div className="section-name">
-              <b>III.	ROLLO FRESCO </b>
-              <span> - GỎI CUỐN</span>
-            </div>
-          <i className="section-description">Rollitos frescos envuelto a mano de papel de arroz con</i>
-          {rollo.map((dish, i) => {
-                            return <div className="box1" key={i}>
-                                    <div><span>{dish.id}.</span> <span>{dish.name} </span> <span> - {dish.name2}</span></div>
-                                    <div className="price"><b><span>{dish.price}€</span></b></div>
-                                </div>
-                        })}
-          </div>
-
-          <div className="food-section">
-            <div className="section-name">
-              <div><b>PLATOS PRINCIPALES</b></div>
-              <b>IV.	PHO</b>
-            </div>
-            <i className="section-description">PHO es plato más popular en Vietnam. Una sopa de fideos de arroz en caldo cocido a fuego lento durante 10-12 horas, con</i>
-            {pho.map((dish, i) => {
+      <button 
+      className="button"
+      onClick={handleComidaClick}>COMIDA</button>
+       | <button 
+      className="button"
+      onClick={handleBedidasClick}>BEBIDAS</button>
+      
+        {comidaPressed ? <>
+        <div className="body">
+          <div className="left-side">
+            <div className="food-section">
+              <div className="section-name">
+                <b>I. ENSALADA VIETNAMITA DE MANGO</b>
+                <span> - GỎI XOÀI</span>
+              </div>
+            <i className="section-description">Deliciosa y saludable ensalada de mango con</i>
+            {ensalada.map((dish, i) => {
                               return <div className="box1" key={i}>
                                       <div><span>{dish.id}.</span> <span>{dish.name} </span></div>
                                       <div className="price"><b><span>{dish.price}€</span></b></div>
                                   </div>
                           })}
+            </div>
+
+            <div className="food-section">
+              <div className="section-name">
+                <b>II.	ROLLITOS PRIMAVERA </b>
+                <span> - NEM HÀ NỘI</span>
+              </div>
+            <i className="section-description">Rollitos fritos crujientes rellenos de</i>
+            {rollitos.map((dish, i) => {
+                              return <div className="box1" key={i}>
+                                      <div><span>{dish.id}.</span> <span>{dish.name} </span></div>
+                                      <div className="price"><b><span>{dish.price}€</span></b></div>
+                                  </div>
+                          })}
+            </div>
+
+            <div className="food-section">
+              <div className="section-name">
+                <b>III.	ROLLO FRESCO </b>
+                <span> - GỎI CUỐN</span>
+              </div>
+            <i className="section-description">Rollitos frescos envuelto a mano de papel de arroz con</i>
+            {rollo.map((dish, i) => {
+                              return <div className="box1" key={i}>
+                                      <div><span>{dish.id}.</span> <span>{dish.name} </span> <span> - {dish.name2}</span></div>
+                                      <div className="price"><b><span>{dish.price}€</span></b></div>
+                                  </div>
+                          })}
+            </div>
+
+            <div className="food-section">
+              <div className="section-name">
+                <div><b>PLATOS PRINCIPALES</b></div>
+                <b>IV.	PHO</b>
+              </div>
+              <i className="section-description">PHO es plato más popular en Vietnam. Una sopa de fideos de arroz en caldo cocido a fuego lento durante 10-12 horas, con</i>
+              {pho.map((dish, i) => {
+                                return <div className="box1" key={i}>
+                                        <div><span>{dish.id}.</span> <span>{dish.name} </span></div>
+                                        <div className="price"><b><span>{dish.price}€</span></b></div>
+                                    </div>
+                            })}
+            </div>
+
+            <div className="food-section">
+              <div className="section-name">
+              <div className="box1">
+              </div>
+              </div>
+              {bun.map((dish, i) => {
+                  return <div className="box1" key={i}>
+                          <div><b><span>{dish.id}.</span> <span>{dish.name} </span></b><br />
+                          <i>{dish.name2}</i></div>
+                          <div className="price"><b><span>{dish.price}€</span></b></div>
+                      </div>
+              })}
+
+              {my.map((dish, i) => {
+                  return <div className="box1" key={i}>
+                          <div><b><span>{dish.id}.</span> <span>{dish.name} </span></b><br />
+                          <i>{dish.name2}</i></div>
+                          <div className="price"><b><span>{dish.price}€</span></b></div>
+                      </div>
+              })}
+            </div>
+
+            <div className="food-section">
+              <div className="section-name">
+                <b>V. PLATOS MIXTOS</b>
+              </div>
+              {platos.map((dish, i) => {
+                              return <div className="box1" key={i}>
+                                      <div><span>{dish.id}.</span> <span>{dish.name} </span> <span> - {dish.name2}</span></div>
+                                      <div className="price"><b><span>{dish.price}€</span></b></div>
+                                  </div>
+                          })}
+            </div>
+
           </div>
 
-          <div className="food-section">
-            <div className="section-name">
-            <div className="box1">
-            </div>
-            </div>
-            {bun.map((dish, i) => {
-                return <div className="box1" key={i}>
-                        <div><b><span>{dish.id}.</span> <span>{dish.name} </span></b><br />
-                        <i>{dish.name2}</i></div>
-                        <div className="price"><b><span>{dish.price}€</span></b></div>
-                    </div>
-            })}
-
-            {my.map((dish, i) => {
-                return <div className="box1" key={i}>
-                        <div><b><span>{dish.id}.</span> <span>{dish.name} </span></b><br />
-                        <i>{dish.name2}</i></div>
-                        <div className="price"><b><span>{dish.price}€</span></b></div>
-                    </div>
-            })}
-          </div>
-
-          <div className="food-section">
-            <div className="section-name">
-              <b>V. PLATOS MIXTOS</b>
-            </div>
-            {platos.map((dish, i) => {
-                            return <div className="box1" key={i}>
-                                    <div><span>{dish.id}.</span> <span>{dish.name} </span> <span> - {dish.name2}</span></div>
-                                    <div className="price"><b><span>{dish.price}€</span></b></div>
-                                </div>
-                        })}
-          </div>
-
-        </div>
-
-
-        <div className="right-side">
-        <div className="food-section">
-            <div className="section-name">
-              <b>VI. COMIDA SALTEADA</b>
-            </div>
-            {salteada.map((dish, i) => {
-                            return <div className="box1" key={i}>
-                                    <div><span>{dish.id}.</span> <span>{dish.name} </span> <span> - {dish.name2}</span></div>
-                                    <div className="price"><b><span>{dish.price}€</span></b></div>
-                                </div>
-                        })}
-          </div>
+          <div className="right-side">
+            <div className="food-section">
+                <div className="section-name">
+                  <b>VI. COMIDA SALTEADA</b>
+                </div>
+                {salteada.map((dish, i) => {
+                                return <div className="box1" key={i}>
+                                        <div><span>{dish.id}.</span> <span>{dish.name} </span> <span> - {dish.name2}</span></div>
+                                        <div className="price"><b><span>{dish.price}€</span></b></div>
+                                    </div>
+                            })}
+              </div>
                   
-          <div className="food-section">
-            <div className="section-name">
-              <b>VII. ARROZ</b>
+              <div className="food-section">
+                <div className="section-name">
+                  <b>VII. ARROZ</b>
+                </div>
+                {arroz.map((dish, i) => {
+                                return <div className="box1" key={i}>
+                                        <div><span>{dish.id}.</span> <span>{dish.name} </span> <span> - {dish.name2}</span></div>
+                                        <div className="price"><b><span>{dish.price}€</span></b></div>
+                                    </div>
+                            })}
+              </div>
+
+              <div className="food-section">
+                <div className="section-name">
+                  <b>VIII. CURRY</b>
+                </div>
+                {curry.map((dish, i) => {
+                                return <div className="box1" key={i}>
+                                        <div><span>{dish.id}.</span> <span>{dish.name} </span> <span> - {dish.name2}</span></div>
+                                        <div className="price"><b><span>{dish.price}€</span></b></div>
+                                    </div>
+                            })}
+              </div>
+
+              <div className="food-section">
+                <div className="section-name">
+                  <b>IX. BOCADILLO VIETNAMITA</b>
+                  <span> - BÁNH MÌ VIỆT NAM</span>
+                </div>
+                {bocadillo.map((dish, i) => {
+                                return <div className="box1" key={i}>
+                                        <div><span>{dish.id}.</span> <span>{dish.name} </span> <span> - {dish.name2}</span></div>
+                                        <div className="price"><b><span>{dish.price}€</span></b></div>
+                                    </div>
+                            })}
+              </div>
+
+              <div className="food-section">
+                <div className="section-name">
+                  <b>X. POSTRES</b>
+                </div>
+                {postres.map((dish, i) => {
+                                return <div className="box1" key={i}>
+                                        <div><span>{dish.id}.</span> <span>{dish.name} </span> <span> - {dish.name2}</span></div>
+                                        <div className="price"><b><span>{dish.price}€</span></b></div>
+                                    </div>
+                            })}
+          </div></div></div></> : <>
+          <div className="centered-text">
+            <div className="food-section">
+              <div className="section-name">
+                <b>REFRESCO</b>
+              </div>
+              {refresco.map((dish, i) => {
+                  return <div className="box2" key={i}>
+                          <div><span>{dish.id}.</span> <span>{dish.name} </span></div>
+                          <div className="price"><b><span>{dish.price}€</span></b></div>
+                      </div>
+              })}
             </div>
-            {arroz.map((dish, i) => {
-                            return <div className="box1" key={i}>
-                                    <div><span>{dish.id}.</span> <span>{dish.name} </span> <span> - {dish.name2}</span></div>
-                                    <div className="price"><b><span>{dish.price}€</span></b></div>
-                                </div>
-                        })}
+
+            <div className="food-section">
+              <div className="section-name">
+                <b>CERVEZA</b>
+              </div>
+              {cerveza.map((dish, i) => {
+                  return <div className="box2" key={i}>
+                          <div><span>{dish.id}.</span> <span>{dish.name} </span></div>
+                          <div className="price"><b><span>{dish.price}€</span></b></div>
+                      </div>
+              })}
+            </div>
+
+            <div className="food-section">
+              <div className="section-name">
+                <b>VINO</b>
+              </div>
+              {vino.map((dish, i) => {
+                  return <div className="box2" key={i}>
+                          <div><span>{dish.id}.</span> <span>{dish.name} </span></div>
+                          <div className="price"><b><span>{dish.price}€</span></b></div>
+                      </div>
+              })}
+            </div>
+
+            <div className="food-section">
+              <div className="section-name">
+                <b>CAFÉ, TÉ</b>
+              </div>
+              {cafe.map((dish, i) => {
+                  return <div className="box2" key={i}>
+                          <div><span>{dish.id}.</span> <span>{dish.name} </span></div>
+                          <div className="price"><b><span>{dish.price}€</span></b></div>
+                      </div>
+              })}
+            </div>
+            
+            <div className="food-section">
+              <div className="section-name">
+                <b>BEBIDAS CASERAS VIETNAMITAS</b>
+              </div>
+              {cas.map((dish, i) => {
+                  return <div className="box2" key={i}>
+                          <div><span>{dish.id}.</span> <span>{dish.name} </span></div>
+                          <div className="price"><b><span>{dish.price}€</span></b></div>
+                      </div>
+              })}
+            </div>
+
           </div>
 
-          <div className="food-section">
-            <div className="section-name">
-              <b>VIII. CURRY</b>
-            </div>
-            {curry.map((dish, i) => {
-                            return <div className="box1" key={i}>
-                                    <div><span>{dish.id}.</span> <span>{dish.name} </span> <span> - {dish.name2}</span></div>
-                                    <div className="price"><b><span>{dish.price}€</span></b></div>
-                                </div>
-                        })}
-          </div>
+          </>}       
 
-          <div className="food-section">
-            <div className="section-name">
-              <b>IX. BOCADILLO VIETNAMITA</b>
-              <span> - BÁNH MÌ VIỆT NAM</span>
-            </div>
-            {bocadillo.map((dish, i) => {
-                            return <div className="box1" key={i}>
-                                    <div><span>{dish.id}.</span> <span>{dish.name} </span> <span> - {dish.name2}</span></div>
-                                    <div className="price"><b><span>{dish.price}€</span></b></div>
-                                </div>
-                        })}
-          </div>
-
-          <div className="food-section">
-            <div className="section-name">
-              <b>X. POSTRES</b>
-            </div>
-            {postres.map((dish, i) => {
-                            return <div className="box1" key={i}>
-                                    <div><span>{dish.id}.</span> <span>{dish.name} </span> <span> - {dish.name2}</span></div>
-                                    <div className="price"><b><span>{dish.price}€</span></b></div>
-                                </div>
-                        })}
-          </div>
-
-
-        </div>
-      </div>
+        
+   
+      
     </div>
   );
 }
